@@ -46,5 +46,17 @@ a1.eat(p1)
 a2.eat(p2)
 print(a1.alive)
 print(a2.fed)
+=>
+D:\proj\pythonProject4\.venv\Scripts\python.exe D:\proj\pythonProject4\module_6_1.py 
+Волк с Уолл-Стрит
+Цветик семицветик
+True
+False
+Волк с Уолл-Стрит не стал есть Цветик семицветик
+Хатико съел Заводной апельсин
+False
+True
+
+Process finished with exit code 0
 
  
