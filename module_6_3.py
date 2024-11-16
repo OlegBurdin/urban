@@ -3,16 +3,17 @@ class Animal: # класс описывающий животных.
     live = True
     sound = None # звук(изначально отсутствует)
     _DEGREE_OF_DANGER = 0 # степень опасности существа
-    def __init__(self, speed, _cords = [0, 0, 0]):
-        self._cords = _cords
+    def __init__(self, speed):
+        self._cords = [0, 0, 0]
         self.speed = speed
 
     def move(self, dx, dy, dz):
-        self._cords = [self.speed * dx, self.speed * dy, self.speed * dz]
-        if self._cords[2] < 0:
+
+        if dz < 0:
             print("It's too deep, i can't dive")
+
         else:
-            _cords = [dx, dy, dz]
+            self._cords = [self.speed * dx, self.speed * dy, self.speed * dz]
 
     def get_cords(self):
         print(f'X: {self._cords[0]}, Y: {self._cords[1]}, Z: {self._cords[2]}')
@@ -36,8 +37,8 @@ class AquaticAnimal(Animal):
     _DEGREE_OF_DANGER = 3
     def dive_in(self, dz):
         self.dz = dz
-        self._cords[2] = abs(dz) // self.speed // 2
-        return
+        self._cords[2] = int(abs(dz) * self.speed * 0.5 - self._cords[2])
+
 
 class PoisonousAnimal(Animal):
     _DEGREE_OF_DANGER = 8
@@ -59,6 +60,7 @@ db.get_cords()
 db.dive_in(6)
 db.get_cords()
 db.lay_eggs()
+
 =>
 D:\proj\pythonProject4\.venv\Scripts\python.exe D:\proj\pythonProject4\module_6_3.py 
 [<class '__main__.Duckbill'>, <class '__main__.Bird'>, <class '__main__.PoisonousAnimal'>, <class '__main__.AquaticAnimal'>, <class '__main__.Animal'>, <class 'object'>]
