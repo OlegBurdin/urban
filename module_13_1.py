@@ -2,10 +2,12 @@ import asyncio
 
 async def start_strongman(name, power):
     print(f'Силач {name} начал соревнования.')
-    for i in range(1, 6):
+        for i in range(1, 6):
         print(f'Силач {name} поднял {i} шар')
-        await asyncio.sleep(power)
-    print(f'Силач {name} закончил соревнования')
+            if i == 5:
+                print(f'Силач {name} закончил соревнования')
+            await asyncio.sleep(power)
+            
 async def start_tournamen():
     name1 = asyncio.create_task(start_strongman('Pasha', 3))
     name2 = asyncio.create_task(start_strongman('Denis', 4))
@@ -32,11 +34,11 @@ asyncio.run(start_tournamen())
 Силач Apollon поднял 3 шар
 Силач Denis поднял 4 шар
 Силач Pasha поднял 5 шар
-Силач Apollon поднял 4 шар
 Силач Pasha закончил соревнования
+Силач Apollon поднял 4 шар
 Силач Denis поднял 5 шар
-Силач Apollon поднял 5 шар
 Силач Denis закончил соревнования
+Силач Apollon поднял 5 шар
 Силач Apollon закончил соревнования
 
 Process finished with exit code 0
